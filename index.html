@@ -5,8 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Video</title>
+    <script src="/public/Video.js5.16/js/video.min.js"></script>
+    <link rel="stylesheet" href="/public/Video.js5.16/css/video-js.min.css">
 </head>
 <body>
-    
+    <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+         poster="http://16to.com/static/img/logo.png">
+        <source src="/uc/1.mp4" type="video/mp4">
+        <source src="/uc/2.mp4" type="video/mp4">
+  </video>
 </body>
+<script>
+var player = videojs('example_video_1',{
+        muted:true,
+        controls:true,
+        preload:"auto",
+        requestFullscreen:true,
+        language:"zh",
+    },
+    function onPlayerReady() {
+        videojs.log('播放器已经准备好了!');
+        this.on('ended', function() {
+            videojs.log('播放结束了!');
+        });
+    }
+);
+</script>
 </html>
