@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Video</title>
-    <script src="/public/Video.js5.16/js/video.min.js"></script>
-    <link rel="stylesheet" href="/public/Video.js5.16/css/video-js.min.css">
+    <script src="/public/Jquery1.12/jquery.min.js"></script>
+    <style>
+        #list {
+            padding: 0;
+            margin: 0;
+        }
+        #list li {
+            display: inline-block;
+            margin: 0;
+            margin-bottom: 20px;
+            width: 20%;
+            list-style: none;
+            overflow: hidden;
+        }
+        #list li div{
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+        #list li a {
+            display: inline-block;
+            height: 150px;
+            width: 100%;
+            border: 1px solid red;
+            text-align: center;
+            word-break: break-all;
+        }
+    </style>
 </head>
+
 <body>
-    <video 
-        id="myVideo" 
-        class="video-js vjs-default-skin" 
-        controls 
-        muted 
-        autoplay 
-        poster="http://16to.com/static/img/logo.png">
-    </video>
+    <ul id="list">
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+        <li>
+            <div>
+                <a href="video.html">电影123456</a>
+            </div>
+        </li>
+
+    </ul>
 </body>
 <script>
-var list=[
-    {src:'/uc/1.mp4',type:'video/mp4'},
-    {src:'/uc/2.mp4',type:'video/mp4'},
-];
-var i=0;
-
-var player = videojs('myVideo',{
-        autoplay:true,
-        controls:true,
-        preload:"auto",
-        isFullscreen:true,
-        language:"zh",
-        "sources": [{ 
-		    src: list[i].src,
-		    type: list[i].type
-		}],
-    },
-    function onPlayerReady() {
-        // this.play();
-        // this.requestFullscreen();
-        this.on('ended', function() {
-            console.log('播放结束了!');
-            i++;
-	        if(i >= list.length){
-	            i = 0;
-	        }
-	        var videoObj = list[i];
-            this.src({type: videoObj.type, src: videoObj.src});
-            console.log(videoObj);
-	        this.play();
-        });
-    }
-);
 </script>
+
 </html>

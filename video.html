@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Video</title>
+    <script src="/public/Video.js5.16/js/video.min.js"></script>
+    <link rel="stylesheet" href="/public/Video.js5.16/css/video-js.min.css">
+</head>
+<body>
+    <video 
+        id="myVideo" 
+        class="video-js vjs-default-skin" 
+        controls 
+        autoplay 
+        poster="http://16to.com/static/img/logo.png">
+    </video>
+</body>
+<script>
+var list=[
+    {src:'/uc/1.mp4',type:'video/mp4'},
+    {src:'/uc/2.mp4',type:'video/mp4'},
+];
+var i=0;
+
+var player = videojs('myVideo',{
+        autoplay:true,
+        controls:true,
+        preload:"auto",
+        isFullscreen:true,
+        language:"zh",
+        "sources": [{ 
+		    src: list[i].src,
+		    type: list[i].type
+		}],
+    },
+    function onPlayerReady() {
+        // this.play();
+        // this.requestFullscreen();
+        this.on('ended', function() {
+            console.log('播放结束了!');
+            i++;
+	        if(i >= list.length){
+	            i = 0;
+	        }
+	        var videoObj = list[i];
+            this.src({type: videoObj.type, src: videoObj.src});
+            console.log(videoObj);
+	        this.play();
+        });
+    }
+);
+</script>
+</html>
