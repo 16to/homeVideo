@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <meta name="keywords" content="gitui,ui,前端框架,JS组件">
+    <meta name="description" content="gitui - 极简模块化前端框架">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>gitui - dialog</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../dist/css/gitui.min.css"/>
+    <script type="text/javascript" src="../dist/gitui.min.js"></script>
+</head>
+<body>
+<div>
+    <h2>弹出框</h2>
+    <button class="gitui-btn" id="msgBtn">消息弹出框</button>
+    <button class="gitui-btn" id="msgOKBtn">确认弹出框</button>
+    <button class="gitui-btn" id="confirmBtn">询问框</button>
+    <button class="gitui-btn" id="loadingBtn">等待框</button>
+    <button class="gitui-btn" id="imgBtn">图片框</button>
+    <button class="gitui-btn" id="edit1Btn">编辑框1</button>
+    <button class="gitui-btn" id="edit2Btn">编辑框2</button>
+    <button class="gitui-btn" id="loginBtn">登录框</button>
+</div>
+<span class="triangle-up"></span>
+<div>
+    <h2>提示层</h2>
+    <button class="gitui-btn" gitui-tips="右提示层" gitui-tips-align="right">右提示层</button>
+    <button class="gitui-btn" gitui-tips="左提示层" gitui-tips-align="left">左提示层</button>
+    <button class="gitui-btn" gitui-tips="上提示层" gitui-tips-align="top">上提示层</button>
+    <button class="gitui-btn" gitui-tips="下提示层" gitui-tips-align="bottom">下提示层</button>
+    <button class="gitui-btn" gitui-tips="左上提示层" gitui-tips-align="top left">左上提示层</button>
+    <button class="gitui-btn" gitui-tips="右上提示层" gitui-tips-align="top right">右上提示层</button>
+    <button class="gitui-btn" gitui-tips="左下提示层" gitui-tips-align="bottom left">左下提示层</button>
+    <button class="gitui-btn" gitui-tips="右下提示层" gitui-tips-align="bottom right">右上提示层</button>
+</div>
+</body>
+<script type="text/javascript">
+jQuery("#msgBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.msg("内容12345678");
+});
+function msgDialog(){
+    gituiDialog.msg("内容12345678");
+}
+jQuery("#msgOKBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.msgOK("标题","内容12345678",okFunction);
+});
+jQuery("#loginBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.login("登录","登录内容",loginFunction);
+});
+jQuery("#confirmBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.confirm("标题","内容12345678",okFunction,cancelFunction);
+});
+jQuery("#loadingBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.loading();
+});
+jQuery("#imgBtn").on('click', function(event) {
+    event.preventDefault();
+    gituiDialog.img("../img/xxkf.png");
+});
+jQuery("#edit1Btn").on('click', function(event) {
+    event.preventDefault();
+    var html='<p><input type="text" class="gitui-input"></p>';
+    gituiDialog.edit("修改用户",html);
+});
+jQuery("#edit2Btn").on('click', function(event) {
+    event.preventDefault();
+    var html='<p><input type="text" class="gitui-input"></p>';
+    gituiDialog.edit("修改用户",html,okEdit,"修改");
+});
+function okEdit(){
+    gituiDialog.msg("编辑框确认按钮");
+}
+function cancelEdit(){
+    gituiDialog.msg("编辑框取消按钮");
+}
+function okFunction(){
+    return false;
+}
+function cancelFunction(){
+    return true;
+}
+function loginFunction(){
+    gituiDialog.msg("登录成功！");
+}
+</script>
+</html>

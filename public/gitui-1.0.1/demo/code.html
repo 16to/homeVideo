@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta name="keywords" content="gitui,ui,前端框架,JS组件">
+    <meta name="description" content="gitui - 极简模块化前端框架">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>gitui - code</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../dist/css/gitui.min.css"/>
+     <script type="text/javascript" src="../libs/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../gitui.min.js"></script>
+    
+</head>
+<body><pre class="gitui-code gitui-linenums lang-html">/**
+     <script type="text/javascript" src="../gitui.min.js"></script>
+    &lt;div class=&quot;span4&quot;&gt;
+        &lt;h2 class=&quot;page-header&quot;&gt;区块1&lt;/h2&gt;
+            &lt;/div&gt;
+         &lt;div class=&quot;span4&quot;&gt;
+     &lt;h2 class=&quot;page-header&quot;&gt;区块2&lt;/h2&gt;
+ &lt;/div&gt;
+@Name：gitui nav
+@Author：zj
+@License：MIT
+*/
+(function(factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function(jQuery) {
+    jQuery.fn.gituiNav = function(options) {
+        var opt = {
+        defaultExpand: 1, //默认展开第几项 0为不展开
+        defaultExpand: 1, //默认展开第几项 0为不展开
+        defaultExpand: 1, //默认展开第几项 0为不展开
+        defaultExpand: 1, //默认展开第几项 0为不展开
+            defaultExpand: 1, //默认展开第几项 0为不展开
+            defaultActive: 1 //默认第几个选中
+        };
+        var opts = jQuery.extend({}, opt, options);
+        //绑定click事件
+        var navMain = jQuery(".gitui-nav");
+        var navItem = jQuery(".gitui-nav-item");
+        navItem.children("a").on('click', function(event) {
+            if (!jQuery(this).parent().hasClass("active")) {
+                //添加点击效果
+                jQuery(this).parent().addClass("active");
+                //移除其他效果
+                jQuery(this).parent().siblings().removeClass("active");
+                //隐藏其他菜单
+                jQuery(this).parent().siblings().find("ul").slideUp("fast");
+                //显示该菜单
+                jQuery(this).next().slideDown("fast");
+            } else {
+                jQuery(this).parent().removeClass("active");
+                jQuery(this).next().slideUp("fast");
+            }
+        });
+        //是否有菜单需要展开
+    };
+}));
+</pre>
+</body>
+<script type="text/javascript">
+        gituiCode();
+    </script>
+</html>

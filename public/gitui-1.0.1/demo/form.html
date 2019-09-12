@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+    <meta name="keywords" content="gitui,ui,前端框架,JS组件">
+    <meta name="description" content="gitui - 极简模块化前端框架">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>gitui - form</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../css/gitui.min.css"/>
+    <script type="text/javascript" src="../gitui.min.js"></script>
+    <link rel="stylesheet" href="../vendor/umeditor/themes/default/css/umeditor.min.css"/>
+    <script type="text/javascript" src="../vendor/umeditor/third-party/template.min.js"></script>
+    <script type="text/javascript" src="../vendor/umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" src="../vendor/umeditor/umeditor.js"></script>
+</head>
+<body>
+    <div>
+        <h2>输入框</h2>
+        <form class="gitui-form">
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">长输入框</label>
+                <input type="text" name="title" class="gitui-input-long" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">短输入框</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">密码</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+                <label class="gitui-form-label">确认密码</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">手机号</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+                <label class="gitui-form-label">验证码</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">邮件</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+                <label class="gitui-form-label">QQ</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+                <label class="gitui-form-label">网页链接</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+            <div class="gitui-form-item">
+                <label class="gitui-form-label">身份证</label>
+                <input type="text" name="title" class="gitui-input" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            </div>
+        </form>
+        <h2>选择框</h2>
+        <form class="gitui-form">
+            <label class="gitui-form-label">单行选择框</label>
+            <select name="one" class="gitui-select">
+                <option value="1">选择一</option>
+                <option value="2" selected="selected">选择二</option>
+                <option value="3" disabled="disabled">选择三</option>
+            </select>
+            <label class="gitui-form-label">分组选择框</label>
+            <select name="two" class="gitui-select">
+                <optgroup label="第一部分">
+                    <option value="1">选择一</option>
+                </optgroup>
+                <optgroup label="第二部分">
+                    <option value="2">选择二</option>
+                    <option value="3">选择三</option>
+                </optgroup>
+            </select>
+        </form>
+        <h2>复选框</h2>
+        <form class="gitui-form">
+            <label class="gitui-form-label">多选一</label>
+            <input type="checkbox" name="c[1]" checked="checked">
+            <label class="gitui-form-label">多选二</label>
+            <input type="checkbox" name="c[2]">
+            <label class="gitui-form-label">多选三</label>
+            <input type="checkbox" name="c[3]" disabled="disabled">
+        </form>
+        <h2>单选框</h2>
+        <form class="gitui-form">
+            <label class="gitui-form-label">单选一</label>
+            <input type="radio" name="r" checked="checked">
+            <label class="gitui-form-label">单选二</label>
+            <input type="radio" name="r">
+            <label class="gitui-form-label">单选三</label>
+            <input type="radio" name="r" disabled="disabled">
+        </form>
+        <h2>开关框</h2>
+        <form>
+            <label class="gitui-form-label">默认关闭</label>
+            <input type="checkbox" name="close">
+            <label class="gitui-form-label">默认打开</label>
+            <input type="checkbox" name="open">
+        </form>
+        <h2>文本域</h2>
+        <form>
+            <textarea placeholder="请输入内容" class="gitui-textarea"></textarea>
+        </form>
+        <h2>搜索框</h2>
+        <form>
+            <div class="gitui-form-search">
+            <input type="text" name="title" class="gitui-input-search" gitui-verify="title" autocomplete="off" placeholder="请输入">
+            <button class="gitui-btn-search">搜索</button>
+            </div>
+        </form>
+         <h2>富文本</h2>
+        <div id="myEditor" style="width:1000px;height:300px;max-height:300px;">
+                <p>这里我可以写一些输入提示</p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+window.UMEDITOR_CONFIG.toolbar=[
+            'source | undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor | removeformat |',
+            'insertorderedlist insertunorderedlist | selectall cleardoc paragraph | fontfamily fontsize' ,
+            '| justifyleft justifycenter justifyright justifyjustify |',
+            'link unlink',
+            '| horizontal print preview fullscreen', 'drafts'
+        ];
+    var um = UM.getEditor('myEditor');
+
+</script>
+</html>

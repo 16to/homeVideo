@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<meta name="keywords" content="gitui,ui,前端框架,JS组件">
+<meta name="description" content="gitui - 极简模块化前端框架">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<title>gitui - tab</title>
+<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="../dist/css/gitui.min.css"/>
+<script type="text/javascript" src="../dist/gitui.min.js"></script>
+</head>
+<body>
+<h2>默认TAB</h2>
+<div class="gitui-tab">
+    <ul class="gitui-tab-nav">
+        <li>前端1</li>
+        <li>前端2</li>
+        <li>前端3</li>
+        <li>前端4</li>
+    </ul>
+    <ul class="gitui-tab-content">
+        <li>前端1内容</li>
+        <li>前端2内容</li>
+        <li>前端3内容</li>
+        <li>前端4内容</li>
+    </ul>
+</div>
+<h2>Hash TAB</h2>
+<div class="gitui-tab">
+    <ul class="gitui-tab-nav">
+        <li gitui-hash="1">前端hash1</li>
+        <li gitui-hash="2">前端hash2</li>
+        <li gitui-hash="3">前端hash3</li>
+        <li gitui-hash="4">前端hash4</li>
+    </ul>
+    <ul class="gitui-tab-content">
+        <li>前端hash1内容，刷新后保留该TAB</li>
+        <li>前端hash2内容，刷新后保留该TAB</li>
+        <li>前端hash3内容，刷新后保留该TAB</li>
+        <li>前端hash4内容，刷新后保留该TAB</li>
+    </ul>
+</div>
+<h2>简约TAB</h2>
+<div class="gitui-tab gitui-tab-sample">
+    <ul class="gitui-tab-nav">
+        <li>简约TAB1</li>
+        <li>简约TAB2</li>
+        <li>简约TAB3</li>
+        <li>简约TAB4</li>
+    </ul>
+    <ul class="gitui-tab-content">
+        <li>简约TAB1内容</li>
+        <li>简约TAB2内容</li>
+        <li>简约TAB3内容</li>
+        <li>简约TAB4内容</li>
+    </ul>
+</div>
+<h2>卡片TAB</h2>
+<div class="gitui-tab gitui-tab-card">
+    <ul class="gitui-tab-nav">
+        <li gitui-hash="41">卡片TAB1</li>
+        <li gitui-hash="42">卡片TAB2</li>
+        <li gitui-hash="43">卡片TAB3</li>
+        <li gitui-hash="44">卡片TAB4</li>
+    </ul>
+    <ul class="gitui-tab-content">
+        <li>前端卡片1内容，刷新后保留该TAB</li>
+        <li>前端卡片2内容，刷新后保留该TAB</li>
+        <li>前端卡片3内容，刷新后保留该TAB</li>
+        <li>前端卡片4内容，刷新后保留该TAB</li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    gituiTab();
+</script>
+</html>
