@@ -55,7 +55,7 @@
     jQuery.get("/api/list",function(res,err){
         const arr = JSON.parse(res);
         arr.forEach(item => {
-            const tmp='<div class="gitui-col-2"><a href="video.html?src='+item.src+'">电影123456</a></div>';
+            const tmp='<div class="gitui-col-2"><a href="video.html?src='+item.src+'">'+item.name+'</a></div>';
             jQuery("#row").append(tmp)
         });
     })
