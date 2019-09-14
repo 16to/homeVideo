@@ -22,8 +22,8 @@ function findSync(startPath) {
                     result.push(
                         {
                             "src":fPath,
-                            "name":val,
-                            "type":path.extname(val),
+                            "name":path.basename(val,ext),
+                            "type":ext,
                         }
                     );
                 }

@@ -10,24 +10,29 @@
     <script src="/public/Jquery1.12/jquery.min.js"></script>
     <script src="/public/jquery.cookie1.4.1.min.js"></script>
     <style>
-        body{
+        body {
             background: #2B2A2A;
             color: #ddd;
         }
-        a{
+
+        a {
             color: #ddd;
             text-decoration: none;
         }
-        a:hover{
+
+        a:hover {
             text-decoration: none;
         }
-        #list{
+
+        #list {
             padding: 8px 24px;
         }
-        #list .gitui-col-2{
+
+        #list .gitui-col-2 {
             padding: 8px;
         }
-        #list .gitui-col-2 a{
+
+        #list .gitui-col-2 a {
             display: inline-block;
             width: 100%;
             height: 260px;
@@ -39,9 +44,31 @@
             justify-content: center;
             position: relative;
             background: #333333;
+            overflow: hidden;
         }
-        #list .gitui-col-2 a:focus,#list .gitui-col-2 a:hover{
+
+        #list .gitui-col-2 a:focus,
+        #list .gitui-col-2 a:hover {
             border: 1px solid #00BE06;
+        }
+
+        .box-con {
+            width: 94px;
+            height: 94px;
+            position: absolute;
+            background: green;
+            top: -50px;
+            right: -50px;
+            transform: rotate(45deg);
+        }
+
+        .box-con span {
+            position: absolute;
+            bottom: 0;
+            display: block;
+            width: 94px;
+            font-size: 14px;
+            text-align: center;
         }
     </style>
 </head>
@@ -53,18 +80,19 @@
     </div>
 </body>
 <script>
-    jQuery.get("/api/list",function(res,err){
+    jQuery.get("/api/list", function (res, err) {
         const arr = JSON.parse(res);
-        let tmp ="";
+        let tmp = "";
         arr.forEach(item => {
-            if(jQuery.cookie("videoSrc")===item.src){
-                tmp='<div class="gitui-col-2"><a href="video.html?src='+encodeURI(item.src)+'">'+item.name+'上次看到'+'</a></div>';
+            if (jQuery.cookie("videoSrc") === item.src) {
+                tmp = '<div class="gitui-col-2"><a href="video.html?src=' + encodeURI(item.src) + '"><div class="box-con"><span>上次观看</span></div>' + item.name + '' + '</a></div>';
             }
-            else{
-                tmp='<div class="gitui-col-2"><a href="video.html?src='+encodeURI(item.src)+'">'+item.name+'</a></div>';
+            else {
+                tmp = '<div class="gitui-col-2"><a href="video.html?src=' + encodeURI(item.src) + '">' + item.name + '</a></div>';
             }
             jQuery("#row").append(tmp)
         });
     })
 </script>
+
 </html>
