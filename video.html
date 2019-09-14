@@ -29,7 +29,7 @@
     jQuery.get("/api/list", function (res, err) {
         const arr = JSON.parse(res);
         const curSrc = getUrlParam("src");
-        arr.forEach((item, index) => {
+        arr.forEach(function(item, index) {
             if (encodeURI(item.src) === curSrc) {
                 i = index;
                 return;
@@ -53,7 +53,6 @@
             function onPlayerReady() {
                 // this.play();
                 // this.requestFullscreen();
-                console.log(i);
                 jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
                 this.on('ended', function () {
                     i++;

@@ -83,7 +83,7 @@
     jQuery.get("/api/list", function (res, err) {
         const arr = JSON.parse(res);
         let tmp = "";
-        arr.forEach(item => {
+        arr.forEach(function(item){
             if (jQuery.cookie("videoSrc") === item.src) {
                 tmp = '<div class="gitui-col-2"><a href="video.html?src=' + encodeURI(item.src) + '"><div class="box-con"><span>上次观看</span></div>' + item.name + '' + '</a></div>';
             }
