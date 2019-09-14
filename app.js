@@ -17,13 +17,16 @@ function findSync(startPath) {
                 return;
             }
             if(stats.isFile()) {
-                result.push(
-                    {
-                        "src":fPath,
-                        "name":val,
-                        "type":path.extname(val),
-                    }
-                );
+                const ext = path.extname(val);
+                if(ext===".mp4" || ext === ".MP4"){
+                    result.push(
+                        {
+                            "src":fPath,
+                            "name":val,
+                            "type":path.extname(val),
+                        }
+                    );
+                }
             }
         });
 
@@ -37,7 +40,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/api/list",(req,res)=>{
-    const arr = findSync(path.join(__dirname,'/uc'));
+    const arr = findSync('./uc');
     res.send(JSON.stringify(arr));
 });
 

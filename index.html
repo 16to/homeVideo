@@ -8,6 +8,7 @@
     <title>Home Video</title>
     <link rel="stylesheet" href="/public/gitui-1.0.1/css/gitui.min.css">
     <script src="/public/Jquery1.12/jquery.min.js"></script>
+    <script src="/public/jquery.cookie1.4.1.min.js"></script>
     <style>
         body{
             background: #2B2A2A;
@@ -54,8 +55,14 @@
 <script>
     jQuery.get("/api/list",function(res,err){
         const arr = JSON.parse(res);
+        let tmp ="";
         arr.forEach(item => {
-            const tmp='<div class="gitui-col-2"><a href="video.html?src='+item.src+'">'+item.name+'</a></div>';
+            if(jQuery.cookie("videoSrc")===item.src){
+                tmp='<div class="gitui-col-2"><a href="video.html?src='+encodeURI(item.src)+'">'+item.name+'上次看到'+'</a></div>';
+            }
+            else{
+                tmp='<div class="gitui-col-2"><a href="video.html?src='+encodeURI(item.src)+'">'+item.name+'</a></div>';
+            }
             jQuery("#row").append(tmp)
         });
     })
