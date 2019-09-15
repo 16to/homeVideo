@@ -63,7 +63,7 @@
 <body>
     <div style="width: 500px; height: 500px">
         <video id="myVideo" style="object-fit: fill; width: 100%; height: 100%"
-            class="video-js vjs-default-skin vjs-big-play-centered" controls autoplay
+            class="video-js vjs-default-skin vjs-big-play-centered" controls autofocus="autofocus"
             poster="http://16to.com/static/img/logo.png">
         </video>
     </div>
@@ -90,10 +90,11 @@
     });
     function init() {
         var player = videojs('myVideo', {
-            autoplay: true,
             controls: true,
             preload: "auto",
-            isFullscreen: true,
+            autoplay:true,
+            isFullscreen:true,
+            allowfullscreen:true,
             language: "zh",
             "sources": [{
                 src: list[i].src,
@@ -102,15 +103,6 @@
         },
             function onPlayerReady() {
                 jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
-                if (this.requestFullscreen) {
-                    this.requestFullscreen();
-                } else if (this.mozRequestFullScreen) {
-                    this.mozRequestFullScreen();
-                } else if (this.webkitRequestFullscreen) {
-                    this.webkitRequestFullscreen();
-                } else if (this.msRequestFullscreen) {
-                    this.msRequestFullscreen();
-                }
                 this.on('play', function () {
                     if (this.requestFullscreen) {
                         this.requestFullscreen();
