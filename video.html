@@ -13,9 +13,11 @@
 </head>
 
 <body>
-    <video id="myVideo" class="video-js vjs-default-skin" controls autoplay
-        poster="http://16to.com/static/img/logo.png">
-    </video>
+    <div style="width: 500px; height: 500px">
+        <video id="myVideo" style="object-fit: fill; width: 100%; height: 100%" class="video-js vjs-default-skin" controls autoplay
+            poster="http://16to.com/static/img/logo.png">
+        </video>
+    </div>
 </body>
 <script>
     function getUrlParam(name) {
@@ -50,8 +52,15 @@
             }],
         },
             function onPlayerReady() {
-                // this.play();
-                this.requestFullscreen();
+                if(this.requestFullscreen) {
+                    this.requestFullscreen();
+                } else if(this.mozRequestFullScreen) {
+                    this.mozRequestFullScreen();
+                } else if(this.webkitRequestFullscreen) {
+                    this.webkitRequestFullscreen();
+                } else if(this.msRequestFullscreen) {
+                    this.msRequestFullscreen();
+                }
                 jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
                 this.on('ended', function () {
                     i++;
