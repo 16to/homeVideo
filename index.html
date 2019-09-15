@@ -85,10 +85,10 @@
         var tmp = "";
         for (var i=0;i<arr.length;i++){
             if (jQuery.cookie("videoSrc") === arr[i].src) {
-                tmp = '<div class="gitui-col-2"><a href="video.html?src=' + encodeURI(arr[i].src) + '"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
+                tmp = '<div class="gitui-col-2"><a tabindex="'+(i+1)+'" href="video.html?src=' + encodeURI(arr[i].src) + '"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
             }
             else {
-                tmp = '<div class="gitui-col-2"><a href="video.html?src=' + encodeURI(arr[i].src) + '">' + arr[i].name + '</a></div>';
+                tmp = '<div class="gitui-col-2"><a tabindex="'+(i+1)+'" href="video.html?src=' + encodeURI(arr[i].src) + '">' + arr[i].name + '</a></div>';
             }
             jQuery("#row").append(tmp)
         };

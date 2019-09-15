@@ -51,7 +51,7 @@
         },
             function onPlayerReady() {
                 // this.play();
-                // this.requestFullscreen();
+                this.requestFullscreen();
                 jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
                 this.on('ended', function () {
                     i++;
