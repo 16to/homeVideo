@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Video Play</title>
+    <link rel="stylesheet" href="/public/Video.js5.16/css/video-js.min.css">
+    <script src="/public/Video.js5.16/js/video.min.js"></script>
     <script src="/public/Jquery1.12/jquery.min.js"></script>
     <script src="/public/jquery.cookie1.4.1.min.js"></script>
 </head>
 
 <body>
+    <video id="myVideo">
 </body>
 <script>
     function getUrlParam(name) {
@@ -30,50 +33,50 @@
             }
         };
         list = arr;
-        videoStart();
+        init();
     });
     function videoStart(){
         jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
         window.location.href=list[i].src;
     }
-    // function init() {
-    //     var player = videojs('myVideo', {
-    //         controls: true,
-    //         preload: "auto",
-    //         autoplay:true,
-    //         isFullscreen:true,
-    //         allowfullscreen:true,
-    //         language: "zh",
-    //         "sources": [{
-    //             src: list[i].src,
-    //             type: "video/mp4"
-    //         }],
-    //     },
-    //         function onPlayerReady() {
-    //             jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
-    //             this.on('play', function () {
-    //                 if (this.requestFullscreen) {
-    //                     this.requestFullscreen();
-    //                 } else if (this.mozRequestFullScreen) {
-    //                     this.mozRequestFullScreen();
-    //                 } else if (this.webkitRequestFullscreen) {
-    //                     this.webkitRequestFullscreen();
-    //                 } else if (this.msRequestFullscreen) {
-    //                     this.msRequestFullscreen();
-    //                 }
-    //             });
-    //             this.on('ended', function () {
-    //                 i++;
-    //                 if (i >= list.length) {
-    //                     i = 0;
-    //                 }
-    //                 var videoObj = list[i];
-    //                 this.src({ type: "video/mp4", src: videoObj.src });
-    //                 jQuery.cookie('videoSrc', videoObj.src, { expires: 365 });
-    //                 this.play();
-    //             });
-    //         });
-    // }
+    function init() {
+        var player = videojs('myVideo', {
+            controls: true,
+            preload: "auto",
+            autoplay:true,
+            isFullscreen:true,
+            allowfullscreen:true,
+            language: "zh",
+            "sources": [{
+                src: list[i].src,
+                type: "video/mp4"
+            }],
+        },
+            function onPlayerReady() {
+                jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
+                this.on('play', function () {
+                    if (this.requestFullscreen) {
+                        this.requestFullscreen();
+                    } else if (this.mozRequestFullScreen) {
+                        this.mozRequestFullScreen();
+                    } else if (this.webkitRequestFullscreen) {
+                        this.webkitRequestFullscreen();
+                    } else if (this.msRequestFullscreen) {
+                        this.msRequestFullscreen();
+                    }
+                });
+                this.on('ended', function () {
+                    i++;
+                    if (i >= list.length) {
+                        i = 0;
+                    }
+                    var videoObj = list[i];
+                    this.src({ type: "video/mp4", src: videoObj.src });
+                    jQuery.cookie('videoSrc', videoObj.src, { expires: 365 });
+                    this.play();
+                });
+            });
+    }
 </script>
 
 </html>

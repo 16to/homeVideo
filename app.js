@@ -35,19 +35,20 @@ function findSync(startPath) {
     return result;
 }
 
-// app.use(express.static(path.join(__dirname, '/')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/api/list", (req, res) => {
     const arr = findSync('./uc');
     res.send(JSON.stringify(arr));
 });
 
-app.get("/uc/*", (req, res) => {
-    console.log(req);
-    readBigFileEntry(path.join(__dirname, req.url), res);
-});
+// app.get("/uc/*", (req, res) => {
+//     console.log(req);
+//     readBigFileEntry(path.join(__dirname, req.url), res);
+// });
+
+app.use(express.static(path.join(__dirname, '/')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //监听端口为8080
 const server = app.listen(8080, function () {
