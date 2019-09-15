@@ -64,10 +64,12 @@
     <div style="width: 500px; height: 500px">
         <video 
             id="myVideo"
-            autoplay
-            preload="metadata"
-            class="video-js vjs-default-skin vjs-big-play-centered" controls
-            poster="http://16to.com/static/img/logo.png">
+            autoplay="autoplay"
+            controls
+            poster="http://16to.com/static/img/logo.png"
+            type="video/mp4"
+            x5-playsinline="" playsinline="" webkit-playsinline=""
+        >
         </video>
     </div>
 </body>
@@ -89,7 +91,6 @@
             }
         };
         list = arr;
-        // init();
         videoStart();
     });
     function videoStart(){
