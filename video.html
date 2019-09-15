@@ -24,17 +24,16 @@
         if (r != null) return r[2]; return null; //返回参数值
     }
 
-    let i = 0;
-    let list = [];
+    var i = 0;
+    var list = [];
     jQuery.get("/api/list", function (res, err) {
-        const arr = JSON.parse(res);
-        const curSrc = getUrlParam("src");
-        arr.forEach(function(item, index) {
-            if (encodeURI(item.src) === curSrc) {
-                i = index;
-                return;
+        var arr = JSON.parse(res);
+        var curSrc = getUrlParam("src");
+        for (var j=0;j<arr.length;j++) {
+            if (encodeURI(arr[j].src) === curSrc) {
+                i = j;
             }
-        });
+        };
         list = arr;
         init();
     });
