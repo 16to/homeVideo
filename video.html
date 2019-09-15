@@ -5,73 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Video</title>
-    <!-- <script src="/public/Video.js5.16/js/video.min.js"></script> -->
+    <title>Home Video Play</title>
     <script src="/public/Jquery1.12/jquery.min.js"></script>
     <script src="/public/jquery.cookie1.4.1.min.js"></script>
-    <link rel="stylesheet" href="/public/Video.js5.16/css/video-js.min.css">
-    <style>
-        .video-js .vjs-time-control {
-            display: block;
-        }
-
-        .video-js .vjs-remaining-time {
-            display: none;
-        }
-
-        .video-js.vjs-playing .vjs-tech {
-            pointer-events: auto;
-        }
-
-        .vjs-paused .vjs-big-play-button,
-        .vjs-paused.vjs-has-started .vjs-big-play-button {
-            display: block;
-        }
-
-        .video-js .vjs-big-play-button {
-            font-size: 2.5em;
-            line-height: 2.3em;
-            height: 2.5em;
-            width: 2.5em;
-            -webkit-border-radius: 2.5em;
-            -moz-border-radius: 2.5em;
-            border-radius: 2.5em;
-            background-color: #73859f;
-            background-color: rgba(115, 133, 159, .5);
-            border-width: 0.15em;
-            margin-top: -1.25em;
-            margin-left: -1.75em;
-        }
-
-        /* 中间的播放箭头 */
-        .vjs-big-play-button .vjs-icon-placeholder {
-            font-size: 1.63em;
-        }
-
-        /* 加载圆圈 */
-        .vjs-loading-spinner {
-            font-size: 2.5em;
-            width: 2em;
-            height: 2em;
-            border-radius: 1em;
-            margin-top: -1em;
-            margin-left: -1.5em;
-        }
-    </style>
 </head>
 
 <body>
-    <div style="width: 500px; height: 500px">
-        <video 
-            id="myVideo"
-            autoplay="autoplay"
-            controls
-            poster="http://16to.com/static/img/logo.png"
-            type="video/mp4"
-            x5-playsinline="" playsinline="" webkit-playsinline=""
-        >
-        </video>
-    </div>
 </body>
 <script>
     function getUrlParam(name) {
@@ -94,17 +33,8 @@
         videoStart();
     });
     function videoStart(){
-        jQuery("#myVideo").attr("src",list[i].src);
         jQuery.cookie('videoSrc', list[i].src, { expires: 365 });
-        jQuery("#myVideo").on("ended",function(){
-            i++;
-            if (i >= list.length) {
-                i = 0;
-            }
-            var videoObj = list[i];
-            jQuery("#myVideo").attr("src",list[i].src);
-            jQuery.cookie('videoSrc', videoObj.src, { expires: 365 });
-        })
+        window.location.href=list[i].src;
     }
     // function init() {
     //     var player = videojs('myVideo', {
