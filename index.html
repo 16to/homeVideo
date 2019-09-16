@@ -46,11 +46,17 @@
             position: relative;
             background: #333333;
             overflow: hidden;
+            transition:color 1s;
+
         }
 
         #list .gitui-col-2 a:focus,
+        #list .gitui-col-2 a:active,
+        
         #list .gitui-col-2 a:hover {
+            outline: none;
             border: 1px solid #00BE06;
+            color: #00BE06;
         }
 
         .box-con {
@@ -91,13 +97,14 @@
         var tmp = "";
         for (var i = 0; i < arr.length; i++) {
             if (jQuery.cookie("videoSrc") === arr[i].src) {
-                tmp = '<div class="gitui-col-2"><a onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
+                tmp = '<div class="gitui-col-2 selected"><a onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
             }
             else {
                 tmp = '<div class="gitui-col-2"><a onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);">' + arr[i].name + '</a></div>';
             }
-            jQuery("#row").append(tmp)
+            jQuery("#row").append(tmp);
         };
+        jQuery(".selected a").focus();
     })
 </script>
 
