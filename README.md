@@ -1,11 +1,11 @@
-
-参考地址 https://blog.csdn.net/kenhins/article/details/82625100  
-
 ## 目录
 index.html 列表页
 video.html 播放页
 uc 视频文件
 
+## 启动
+node app.js
+
 ## 功能
-1. 标注看到哪个视频地方了，写在cookie里
-2. 自动播放下一个视频，电视浏览器不支持
+1.获取uc目录下所有视频文件展示
+2.记录上次看到的视频文件
