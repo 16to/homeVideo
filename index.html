@@ -59,6 +59,14 @@
             color: #00BE06;
         }
 
+        #list #del a:focus,
+        #list #del a:active,
+        #list #del a:hover {
+            outline: none;
+            border: 1px solid red;
+            color:red;
+        }
+
         .box-con {
             width: 94px;
             height: 94px;
@@ -92,6 +100,11 @@
         jQuery.cookie('videoSrc', arr[i].src, { expires: 365 });
         location.href=arr[i].src;
     }
+    function delAll(){
+        jQuery.get("/api/del",function(res,err){
+            location.reload();
+        })
+    }
     jQuery.get("/api/list", function (res, err) {
         arr = JSON.parse(res);
         var tmp = "";
@@ -104,6 +117,10 @@
             }
             jQuery("#row").append(tmp);
         };
+        if(arr.length){
+            var del = '<div class="gitui-col-12" id="del"><a onclick="delAll()" tabindex="' + (arr.length + 1) + '" href="javascript:void(0);">删除所有视频</a></div>';
+            jQuery("#row").append(del);
+        }
         jQuery(".selected").focus();
     })
 </script>

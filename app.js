@@ -41,6 +41,17 @@ app.get("/api/list", (req, res) => {
     res.send(JSON.stringify(arr));
 });
 
+app.get("/api/del", (req, res) => {
+    const arr = findSync('./uc');
+    arr.forEach(item=>{
+        fs.unlink(item.src, error => {
+            // console.log(error);
+        })
+    })
+    
+    res.send([]);
+});
+
 // app.get("/uc/*", (req, res) => {
 //     console.log(req);
 //     readBigFileEntry(path.join(__dirname, req.url), res);
