@@ -29,14 +29,14 @@
             padding: 8px 24px;
         }
 
-        #list .gitui-col-2 {
+        #list .gitui-col-12 {
             padding: 8px;
         }
 
-        #list .gitui-col-2 a {
+        #list .gitui-col-12 a {
             display: inline-block;
             width: 100%;
-            height: 260px;
+            height: 100px;
             border-radius: 4px;
             border: 1px solid #666666;
             font-size: 18px;
@@ -50,10 +50,10 @@
 
         }
 
-        #list .gitui-col-2 a:focus,
-        #list .gitui-col-2 a:active,
+        #list .gitui-col-12 a:focus,
+        #list .gitui-col-12 a:active,
         
-        #list .gitui-col-2 a:hover {
+        #list .gitui-col-12 a:hover {
             outline: none;
             border: 1px solid #00BE06;
             color: #00BE06;
@@ -97,10 +97,10 @@
         var tmp = "";
         for (var i = 0; i < arr.length; i++) {
             if (jQuery.cookie("videoSrc") === arr[i].src) {
-                tmp = '<div class="gitui-col-2"><a class="selected" onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
+                tmp = '<div class="gitui-col-12"><a class="selected" onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);"><div class="box-con"><span>上次观看</span></div>' + arr[i].name + '' + '</a></div>';
             }
             else {
-                tmp = '<div class="gitui-col-2"><a onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);">' + arr[i].name + '</a></div>';
+                tmp = '<div class="gitui-col-12"><a onclick="toVideo(' + i + ');" tabindex="' + (i + 1) + '" href="javascript:void(0);">' + arr[i].name + '</a></div>';
             }
             jQuery("#row").append(tmp);
         };
